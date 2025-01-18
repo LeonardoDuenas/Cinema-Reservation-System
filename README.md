@@ -16,16 +16,18 @@ This project leverages several design patterns to ensure scalability, maintainab
    - Simplifies object creation and promotes loose coupling between client classes and the classes they instantiate.
 
    ```java
-   public class UserFactory {
-       public static User createUser(String userType) {
-           switch (userType) {
-               case "Admin":
-                   return new AdminUser();
-               case "Premium":
-                   return new PremiumUser();
-               default:
-                   return new RegularUser();
-           }
+   public class Login {
+       public static Login loginFactory(LoginType type){ //factory design
+        Login login = null;
+        switch (type){
+            case UserLogin:
+                login = new UserLogin();
+                break;
+            case EmpLogin:
+                login = new EmpLogin();
+                break;
+        }
+        return login;
        }
    }
    ```
@@ -35,18 +37,10 @@ This project leverages several design patterns to ensure scalability, maintainab
    - Prevents multiple instances of the database and ensures global access to the shared resource.
 
    ```java
-   public class MockDatabase {
-       private static MockDatabase instance;
-
-       private MockDatabase() {
-           // Private constructor to prevent instantiation
-       }
-
-       public static MockDatabase getInstance() {
-           if (instance == null) {
-               instance = new MockDatabase();
-           }
-           return instance;
+   public class Database {
+       public static DataBase Instance = new DataBase();
+       private DataBase(){
+           InitializeData();
        }
    }
    ```
