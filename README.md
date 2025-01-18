@@ -54,7 +54,7 @@ This project leverages several design patterns to ensure scalability, maintainab
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cinema-reservation-system.git
+   git clone https://github.com/LeonardoDuenas/Cinema-Reservation-System.git
    ```
 2. Open the project in your IDE.
 3. Compile and run the `Main.java` file.
